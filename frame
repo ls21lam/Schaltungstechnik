@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+	% Defintionen von Längen
+	\def \b  {25}		% Breite des Rahmens
+	\def \h  {15}		% Höhe des Rahmens
+	\def \wb {2}		% Breite des waagerechten Balken
+	\def \sb {1}		% Breite des senkrechten Balken
+	\def \ri {1}		% Radius Außenkreis 
+						% Leider funktioniert es nicht, wenn man z. B. den Radius verdoppelt
+	\def \ra {\sb}		% Radiun Innenkreis
+	
+	% Definitions der Farbe im RGB-Farbraum
+	\definecolor{graublau}{rgb}{.57,0.64,.74}
+	
+	\begin{tikzpicture}[inner sep=0, line width=0]
+
+		\fill [rounded corners, graublau]
+			(0,\h - \wb) -- (0,\h) -- (\b - \sb,\h) arc (90:0:\ra) -- 
+			(\b,0) -- (\b - \sb,0) -- (\b - \sb,\h - \wb - \ri) arc (0:90:\ri) -- cycle;
+
+	\end{tikzpicture}
+\end{document}
